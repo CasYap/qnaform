@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Feedback Home Page";
+}
+
+ <table width="100%">
+        <tr>
+            <td></td>
+            <td>
+                <h1 style="font-weight:500;">Please add your QnA pair!</h1>
+                <h2 style="font-weight:300;">We're eager to know about what you think!</h2>
+            </td>
+        </tr>
+</table>
+
+ <table width="100%">
+        <tr>
+            <td>
+                <input id="key" type="hidden" size="40" value="@(ViewBag.SpeechKey)" />
+                <input id="languageOptions" type="hidden" value="en-US" />
+                <input id="formatOptions" type="hidden" value="Simple" />
+            </td>
+        </tr>
+</table>
+
+<form method="POST">
+    <table width="100%">
+        <tr>
+            <td><textarea id="hypothesisDiv" name="question" placeholder="Type your question" style="width:500px;height:50px"></textarea></td>
+        </tr>
+        <tr>
+            <td><textarea id="hypothesisDiv" name="answer" placeholder="Type your answer" style="width:500px;height:50px"></textarea></td>
+        </tr>
+        <tr>
+            <td><textarea id="hypothesisDiv" name="email" placeholder="Type your email" style="width:500px;height:50px"></textarea></td>
+        </tr>
+        <tr>
+            <td><input type="submit" /></td>
+        </tr>
+    </table>
+</form>
+
