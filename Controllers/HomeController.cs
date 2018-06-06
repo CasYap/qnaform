@@ -23,11 +23,10 @@ namespace customerfeedback_web.Controllers
         public HomeController()
         {
             // Read env variables
-      //      storageAccountName = Environment.GetEnvironmentVariable("STORAGEACCOUNT_NAME");
-        //    storageAccountKey = Environment.GetEnvironmentVariable("STORAGEACCOUNT_KEY");
+            storageAccountName = Environment.GetEnvironmentVariable("STORAGEACCOUNT_NAME");
+            storageAccountKey = Environment.GetEnvironmentVariable("STORAGEACCOUNT_KEY");
 
-            storageAccountName = "storageqna";
-            storageAccountKey = "JMSkY+o7WttRGkiO2MOyBmqjbWBan7zTOObkQp+wbQVVjwgnmTBJw2U7e9jzfhuibibwgsiQh6vhMOrq4uMhtA==";
+
         }
         public IActionResult Index()
         {
