@@ -25,7 +25,7 @@ namespace customerfeedback_web.Controllers
             // Read env variables
             storageAccountName = Environment.GetEnvironmentVariable("STORAGEACCOUNT_NAME");
             storageAccountKey = Environment.GetEnvironmentVariable("STORAGEACCOUNT_KEY");
-
+        
 
         }
         public IActionResult Index()
@@ -34,22 +34,9 @@ namespace customerfeedback_web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(string question, string answer, string email)
+        public async Task<IActionResult> Index(string question, string answer, string department)
         {
             var randomId = Guid.NewGuid();
-
-            // Store in Cosmos DB (Mongo DB)
-            /*
-            var document = new BsonDocument
-            {
-                { "email", email },
-                { "feedback", feedback },
-                { "feedback_id",  randomId.ToString()}
-            };
-
-            var collection = _database.GetCollection<BsonDocument>("feedback");
-            await collection.InsertOneAsync(document);
-            */
 
             // Send message to Queue
             var storageAccount = CloudStorageAccount.Parse(
@@ -61,9 +48,9 @@ namespace customerfeedback_web.Controllers
              await messageQueue.CreateIfNotExistsAsync();
 
              var qnapair = new {
-                email = email,
+                 department = department,
                 question = question,
-                ansrew = answer
+                 answer = answer
              };
 
              var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(qnapair));
