@@ -19,17 +19,20 @@ namespace customerfeedback_web.Controllers
     {
         string storageAccountName;
         string storageAccountKey;
+        string urlWebCaht;
 
         public HomeController()
         {
             // Read env variables
             storageAccountName = Environment.GetEnvironmentVariable("STORAGEACCOUNT_NAME");
             storageAccountKey = Environment.GetEnvironmentVariable("STORAGEACCOUNT_KEY");
-        
+            urlWebCaht = Environment.GetEnvironmentVariable("URL");
 
         }
         public IActionResult Index()
         {
+            //ViewBag.WebChatUrl = "https://webchat.botframework.com/embed/myqnavals?s=e8joe2NMj-Q.cwA.cDA.VOnrHSWDElARr2hDn3sZq9x64QzSArIYP5fZfho-Nj0";
+            ViewBag.WebChatUrl = urlWebCaht;
             return View();
         }
 
